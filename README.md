@@ -1,6 +1,6 @@
 # GitHub Username Checker
 
-## Description
+## Description ![Views Counter](https://views-counter.vercel.app/badge?pageId=https%3A%2F%2Fgithub%2Ecom%2Fetoshy%2FGitHub-Username-Checker&leftColor=000000&rightColor=ffffff&type=total&label=Viewers&style=none)
 This project is a Python script that checks the availability of GitHub usernames. It generates name combinations based on user-defined parameters and tests whether the names are available or already in use.
 
 ## Technologies Used
