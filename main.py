@@ -14,7 +14,7 @@ def generate_names(length, use_letters, use_numbers, prefix, suffix):
     remaining_length = length - len(prefix) - len(suffix)
     
     if remaining_length < 0:
-        return [prefix + suffix]  # Caso o prefixo + sufixo já ultrapasse o limite, apenas verifica essa única palavra
+        return [prefix + suffix]  # If prefix + suffix exceeds the limit, only check this single word
     
     return (prefix + "".join(combo) + suffix for combo in itertools.product(characters, repeat=remaining_length))
 
@@ -23,15 +23,15 @@ def check_github_username(username):
     response = requests.get(url)
     
     if response.status_code == 404:
-        return True  # Disponível
+        return True  # Available
     
     soup = BeautifulSoup(response.text, "html.parser")
     label = soup.find("label", {"for": "not-found-search"})
-    return label is not None  # Se a label existir, o nome está disponível
+    return label is not None  # If the label exists, the name is available
 
 def main():
     if len(sys.argv) < 2:
-        print("Uso: python main.py {numero_de_caracteres} {prefixo} {sufixo} [-a para letras] [-1 para números]")
+        print("Usage: python main.py {number_of_characters} {prefix} {suffix} [-a for letters] [-1 for numbers]")
         return
     
     length = int(sys.argv[1])
@@ -42,22 +42,22 @@ def main():
     use_numbers = "-1" in sys.argv
     
     if not use_letters and not use_numbers:
-        print("Erro: Você deve selecionar pelo menos letras (-a) ou números (-1).")
+        print("Error: You must select at least letters (-a) or numbers (-1).")
         return
     
-    print("Verificando nomes... Aguarde.")
+    print("Checking usernames... Please wait.")
     available_names = []
     
     for name in generate_names(length, use_letters, use_numbers, prefix, suffix):
         is_available = check_github_username(name)
-        status = "Disponível" if is_available else "Indisponível"
-        print(f"Testando: {name} -> {status}")
+        status = "Available" if is_available else "Unavailable"
+        print(f"Testing: {name} -> {status}")
         
         if is_available:
             available_names.append(name)
     
-    print("\nBusca finalizada!")
-    print("Nomes disponíveis:", available_names)
+    print("\nSearch completed!")
+    print("Available usernames:", available_names)
 
 if __name__ == "__main__":
     main()
