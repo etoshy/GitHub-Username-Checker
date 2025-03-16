@@ -1,46 +1,46 @@
 # GitHub Username Checker
 
-## Descrição
-Este projeto é um script Python que verifica a disponibilidade de nomes de usuário no GitHub. Ele gera combinações de nomes baseadas em parâmetros definidos pelo usuário e testa se os nomes estão disponíveis ou já estão em uso.
+## Description
+This project is a Python script that checks the availability of GitHub usernames. It generates name combinations based on user-defined parameters and tests whether the names are available or already in use.
 
-## Tecnologias Utilizadas
-- **Linguagem:** Python 3
-- **Bibliotecas:**
-  - `requests`: Para fazer requisições HTTP ao GitHub
-  - `beautifulsoup4`: Para analisar o HTML das páginas
-  - `itertools`: Para gerar combinações de caracteres
+## Technologies Used
+- **Language:** Python 3
+- **Libraries:**
+  - `requests`: To make HTTP requests to GitHub
+  - `beautifulsoup4`: To parse HTML pages
+  - `itertools`: To generate character combinations
 
-## Pré-requisitos
-Antes de rodar o script, certifique-se de ter o Python 3 instalado e as bibliotecas necessárias. Para instalá-las, use:
+## Prerequisites
+Before running the script, ensure you have Python 3 installed and the required libraries. To install them, use:
 
 ```bash
 pip install requests beautifulsoup4
 ```
 
-## Como Usar
-O script pode ser executado diretamente pelo terminal. O formato do comando é:
+## How to Use
+The script can be executed directly from the terminal. The command format is:
 
 ```bash
-python main.py {numero_de_caracteres} {prefixo} {sufixo} [-a para letras] [-1 para números]
+python main.py {number_of_characters} {prefix} {suffix} [-a for letters] [-1 for numbers]
 ```
 
-### Exemplos
-1. **Verificar nomes de 4 caracteres com prefixo "78kj" e sufixo "kj", usando letras e números:**
+### Examples
+1. **Check 4-character usernames with the prefix "78kj" and suffix "kj", using letters and numbers:**
    ```bash
    python main.py 4 78kj kj -a -1
    ```
 
-2. **Verificar nomes de 5 caracteres apenas com letras:**
+2. **Check 5-character usernames using only letters:**
    ```bash
    python main.py 5 "" "" -a
    ```
 
-3. **Verificar nomes de 6 caracteres apenas com números, prefixo "12" e sufixo "34":**
+3. **Check 6-character usernames using only numbers, with the prefix "12" and suffix "34":**
    ```bash
    python main.py 6 12 34 -1
    ```
 
-Caso não queira um prefixo ou sufixo, basta deixar em branco (`""`).
+If you do not want a prefix or suffix, simply leave it blank (`""`).
 
-## Criador
-Projeto desenvolvido por [etoshy](https://github.com/etoshy).
+## Creator
+Project developed by [etoshy](https://github.com/etoshy).
